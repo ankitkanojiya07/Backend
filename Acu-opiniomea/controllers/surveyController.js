@@ -30,7 +30,7 @@ exports.apiCreate = async (req, res) => {
       });
     }
 
-   
+   const {SurveyName,SurveyStatusCode,CountryLanguageID,IndustryID,StudyTypeID,ClientCPI,ClientSurveyLiveURL,TestRedirectURLIsActive,Quota}=req.body;
     
     res.status(201).json({
       status: "success",

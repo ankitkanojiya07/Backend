@@ -10,7 +10,6 @@ app.use(express.json());
 // #ideal
 app.use('/survey', surveyRoutes);
 app.use('/detail', detailRoutes);
-// app.use('/api', )
 
 module.exports = app;
 

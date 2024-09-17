@@ -30,8 +30,11 @@ exports.apiCreate = async (req, res) => {
       });
     }
 
-   
+  const {SurveyName,SurveyStatusCode,CountryLanguageID,IndustryID,StudyTypeID,ClientCPI,ClientSurveyLiveURL,TestRedirectURLIsActive,Quota}=req.body;
     
+    if (!SurveyName || Quota || TestRedirectURLIsActive || ClientSurveyLiveURL) {
+      res.status(400).json({ message: 'Please fill all the details' });  // You can change 400 to the appropriate fail status code.
+  }  
     res.status(201).json({
       status: "success",
       data: {

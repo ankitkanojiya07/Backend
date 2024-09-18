@@ -7,7 +7,8 @@ const detailRoutes = require('./routes/detailRoutes');
 
 app.use(cors());
 app.use(express.json());
-// #ideal
+
+
 app.use('/survey', surveyRoutes);
 app.use('/detail', detailRoutes);
 

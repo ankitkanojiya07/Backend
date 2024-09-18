@@ -51,6 +51,69 @@ exports.apiCreate = async (req, res) => {
   }
 };
 
+exports.updateSurvey = async (req, res) => {
+  try {
+    const { id } = req.params;  // Get the survey ID from the URL
+
+    // Find the survey by id
+    const survey = await Survey.findByPk(id);
+
+    // If survey not found, return a 404 error
+    if (!survey) {
+      return res.status(404).json({
+        status: "error",
+        message: "Survey not found",
+      });
+    }
+
+    // Update the survey with the request body data
+    await survey.update(req.body);
+
+    // Respond with success and the updated survey data
+    res.status(200).json({
+      status: "success",
+      data: {
+        id: survey.id,
+        SurveyStatusCode: survey.SurveyStatusCode,
+        ClientCPI: survey.ClientCPI,
+        ClientSurveyLiveURL: survey.ClientSurveyLiveURL,
+        TestRedirectURL: survey.TestRedirectURL,
+        IsActive: survey.IsActive,
+        Quota: survey.Quota,
+        QuotaCalculationTypeID: survey.QuotaCalculationTypeID,
+        CollectsPII: survey.CollectsPII,
+      },
+    });
+  } catch (err) {
+    console.error("Error updating survey:", err);
+    res.status(500).json({
+      status: "error",
+      message: "Internal server error",
+    });
+  }
+};
+
+
+exports.createSurvey = async (req, res) => {
+  try {
+
+    const survey = await Survey.create(req.body);
+    res.status(201).json({
+      status: "success",
+      data: {
+        id: survey.id,
+
+      },
+    });
+  } catch (err) {
+    console.error("Error creating survey:", err);
+    res.status(500).json({
+      status: "error",
+      message: "Internal server error",
+    });
+  }
+};  
+
 
 exports.createSurvey = async (req, res) => {
   try {

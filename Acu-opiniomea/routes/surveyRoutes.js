@@ -7,5 +7,7 @@ router.get('/language/:id', surveyController.getCountryName);
 router.get('/live', surveyController.getLiveSurveys);
 router.get('/finished', surveyController.getFinishedSurveys);
 router.post('/create', surveyController.createSurvey);       
+router.put('/update/:id', surveyController.updateSurvey);  
+
 
 module.exports = router;

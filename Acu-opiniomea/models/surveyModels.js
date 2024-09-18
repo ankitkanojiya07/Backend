@@ -64,7 +64,7 @@ const Survey = sequelize.define('Survey', {
     },
 
     // Quota for the survey
-    Quota: {
+    QuotaID: {
         type: DataTypes.INTEGER, // Data type for the 'Quota' field
         allowNull: false,        // 'Quota' cannot be null
     },

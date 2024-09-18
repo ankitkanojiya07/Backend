@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config'); 
 
-const authModel = sequelize.define('Survey', {
+const AuthModel = sequelize.define('Survey', {
     AccountID: {
         type: DataTypes.INTEGER,
         primaryKey:true,
@@ -15,4 +15,4 @@ const authModel = sequelize.define('Survey', {
     
 });
 
-module.exports = authModel;
+module.exports = AuthModel;

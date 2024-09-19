@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config');
 
-// Define the 'subQuota' model with Sequelize
 const subQuota = sequelize.define('subQuota', {
   id: {
     type: DataTypes.INTEGER,
@@ -12,7 +11,7 @@ const subQuota = sequelize.define('subQuota', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Quotas',  // Reference the 'Quota' model
+      model: 'Quotas',
       key: 'id',
     },
   },
@@ -42,5 +41,4 @@ const subQuota = sequelize.define('subQuota', {
   },
 });
 
-// Export the model
 module.exports = subQuota;

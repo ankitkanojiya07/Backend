@@ -1,11 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config');
 
-// Define the 'Quota' model with Sequelize
 const Quota = sequelize.define('Quota', {
   id: {
     type: DataTypes.INTEGER,
-    primaryKey: true,  // Mark this as the primary key
+    primaryKey: true,
     autoIncrement: true,
   },
   QuotaName: {
@@ -30,5 +29,4 @@ const Quota = sequelize.define('Quota', {
   },
 });
 
-// Export the model
 module.exports = Quota;
